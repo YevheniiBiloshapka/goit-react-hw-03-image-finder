@@ -1,14 +1,37 @@
+import { Component } from 'react';
+import { createPortal } from 'react-dom';
 import { Overlay, ModalImg } from './Modal.styled';
 
-export const Modal = () => {
-  return (
-    <Overlay>
-      <ModalImg>
-        <img
-          src="https://plus.unsplash.com/premium_photo-1663126307763-002caf13aaab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-          alt=""
-        />
-      </ModalImg>
-    </Overlay>
-  );
-};
+const modalRoot = document.querySelector('#modal-root');
+
+export default class Modal extends Component {
+   componentDidMount() {
+      window.addEventListener(`keydown`, this.handleKeyDown);
+   }
+   componentWillUnmount() {
+      window.removeEventListener(`keydown`, this.handleKeyDown);
+   }
+
+   handleKeyDown = e => {
+      if (e.code === 'Escape') {
+         this.props.onClose();
+      }
+   };
+   handleBackDropClick = e => {
+      if (e.currentTarget === e.target) {
+         this.props.onClose();
+      }
+   };
+
+   render() {
+      const { tags, largeImageURL } = this.props.hits;
+      return createPortal(
+         <Overlay onClick={this.handleBackDropClick}>
+            <ModalImg>
+               <img src={largeImageURL} alt={tags} />
+            </ModalImg>
+         </Overlay>,
+         modalRoot
+      );
+   }
+}
