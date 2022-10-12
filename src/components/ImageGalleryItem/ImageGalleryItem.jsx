@@ -50,10 +50,10 @@ export default class ImageGalleryItem extends Component {
       if (status === 'resolved') {
          return (
             <>
-               {hits.map(({ id, tags, largeImageURL }) => (
+               {hits.map(({ id, tags, webformatURL, largeImageURL }) => (
                   <Item key={id}>
                      <ItemImage
-                        src={largeImageURL}
+                        src={webformatURL}
                         alt={tags}
                         onClick={() => {
                            this.props.onClick();
