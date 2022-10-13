@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const ItemList = styled.ul`
    display: grid;
@@ -26,64 +26,5 @@ export const ItemImage = styled.img`
    &:hover {
       transform: scale(1.03);
       cursor: zoom-in;
-   }
-`;
-
-const ldsDualRing = keyframes`
- 0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-	
-`;
-
-export const Loader = styled.div`
-   display: inline-block;
-   /* position: absolute;
-   top: 30%;
-   left: 50%;
-   transform: translate(-50%, -50%); */
-
-   margin: 40px auto;
-   width: 40px;
-   height: 40px;
-   &::after {
-      content: ' ';
-
-      display: block;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 6px solid #3f51b5;
-      border-color: #3f51b5 transparent #3f51b5 transparent;
-      animation: ${ldsDualRing} 1.2s linear infinite;
-   }
-`;
-
-export const Button = styled.button`
-   margin: 0 auto;
-   padding: 8px 16px;
-   border-radius: 2px;
-   background-color: #3f51b5;
-   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-   text-align: center;
-   display: inline-block;
-   color: #fff;
-   border: 0;
-   text-decoration: none;
-   cursor: pointer;
-   font-family: inherit;
-   font-size: 18px;
-   line-height: 24px;
-   font-style: normal;
-   font-weight: 500;
-   min-width: 180px;
-   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-   &:hover,
-   &:focus {
-      background-color: #303f9f;
    }
 `;

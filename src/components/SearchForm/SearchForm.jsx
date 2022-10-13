@@ -3,7 +3,7 @@ import { Form, FormButton, Input } from './SearchForm.styled';
 import { VscSearch } from 'react-icons/vsc';
 import { toast } from 'react-toastify';
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
    state = {
       name: '',
    };
@@ -21,7 +21,7 @@ export default class SearchForm extends Component {
       if (this.state.name.trim() === '') {
          toast.warn('Please enter name', {
             position: 'top-right',
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -48,6 +48,7 @@ export default class SearchForm extends Component {
                type="text"
                autoComplete="off"
                autoFocus
+               value={this.state.name}
                placeholder="Search images and photos"
                onChange={this.handleNameChange}
             />
@@ -55,3 +56,5 @@ export default class SearchForm extends Component {
       );
    }
 }
+
+export default SearchForm;
