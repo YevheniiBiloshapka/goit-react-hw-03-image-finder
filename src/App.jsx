@@ -106,7 +106,7 @@ export class App extends Component {
                <Button onClick={this.onLoadMore}>Load More</Button>
             )}
             {showModal && <Modal hits={activeImageIdx} onClose={toggleModal} />}
-            <ToastContainer />
+            <ToastContainer limit={1} />
          </Box>
       );
    }

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 class SearchForm extends Component {
    state = {
       name: '',
+      isCooldown: true,
    };
 
    handleNameChange = event => {
@@ -17,19 +18,17 @@ class SearchForm extends Component {
    handleSubmit = event => {
       event.preventDefault();
       const form = event.currentTarget;
-
       if (this.state.name.trim() === '') {
-         toast.warn('Please enter name', {
+         toast.info('Please enter name', {
             position: 'top-right',
-            autoClose: 2000,
+            autoClose: 5000,
             hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
             progress: undefined,
-            theme: 'dark',
+            theme: 'colored',
          });
-         return;
       }
       this.props.onSubmit(this.state.name);
       form.reset();
