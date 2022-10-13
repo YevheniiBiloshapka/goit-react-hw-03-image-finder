@@ -7,7 +7,7 @@ import {
    Searchbar,
    Button,
    Loader,
-   ErrorImg,
+   NotFound,
 } from './App.styled';
 import { SearchForm, ImageGallery, Modal, imageAPI } from './components';
 
@@ -100,7 +100,7 @@ export class App extends Component {
                )}
             </Gallery>
 
-            {totalHits === 0 && <ErrorImg />}
+            {totalHits === 0 && <NotFound />}
             {status === 'pending' && <Loader />}
             {totalHits - (page - 1) * per_page > per_page && (
                <Button onClick={this.onLoadMore}>Load More</Button>

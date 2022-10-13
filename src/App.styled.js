@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import ErrorImage from './components/img/ErrorImage.jpg';
 
-export const ErrorImg = styled.div`
+export const NotFound = styled.div`
    margin: 0 auto;
 
    background-image: url(${ErrorImage});
