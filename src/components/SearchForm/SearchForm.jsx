@@ -21,7 +21,7 @@ class SearchForm extends Component {
       if (this.state.name.trim() === '') {
          toast.info('Please enter name', {
             position: 'top-right',
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: false,
             pauseOnHover: false,

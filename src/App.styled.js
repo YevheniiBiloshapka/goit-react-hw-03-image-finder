@@ -3,10 +3,22 @@ import ErrorImage from './components/img/ErrorImage.jpg';
 
 export const ErrorImg = styled.div`
    margin: 0 auto;
-   width: 620px;
-   height: 578px;
+
    background-image: url(${ErrorImage});
    background-size: cover;
+
+   @media screen and (min-width: 320px) {
+      width: 220px;
+      height: 200px;
+   }
+   @media screen and (min-width: 768px) {
+      width: 420px;
+      height: 378px;
+   }
+   @media screen and (min-width: 1024px) {
+      width: 620px;
+      height: 578px;
+   }
 `;
 
 export const Box = styled.div`
