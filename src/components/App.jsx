@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Box, Gallery, Searchbar, ImageGallery, Button } from './App.styled';
+import { Box, Gallery, Searchbar } from './App.styled';
 import SearchForm from './SearchForm/SearchForm';
-import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
+import ImageGallery from './ImageGallery/ImageGallery';
 import Modal from './Modal/Modal';
 
 export class App extends Component {
@@ -32,7 +32,7 @@ export class App extends Component {
    };
 
    render() {
-      const { isLoading, name, showModal, activeImageIdx } = this.state;
+      const { name, showModal, activeImageIdx } = this.state;
       const { handleSubmit, toggleModal, setActiveImageIdx } = this;
       return (
          <Box>
@@ -40,19 +40,13 @@ export class App extends Component {
                <Searchbar>
                   <SearchForm onSubmit={handleSubmit} />
                </Searchbar>
-               <ImageGallery>
-                  {name && (
-                     <ImageGalleryItem
-                        inputName={name}
-                        setActiveImageIdx={setActiveImageIdx}
-                        onClick={toggleModal}
-                     />
-                  )}
-               </ImageGallery>
+               <ImageGallery
+                  inputName={name}
+                  setActiveImageIdx={setActiveImageIdx}
+                  onClick={toggleModal}
+               />
             </Gallery>
             <ToastContainer autoClose={2000} />
-
-            {isLoading && <Button>Load More</Button>}
 
             {showModal && <Modal hits={activeImageIdx} onClose={toggleModal} />}
          </Box>
