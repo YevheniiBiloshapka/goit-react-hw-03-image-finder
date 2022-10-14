@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
 import { Overlay, ModalImg } from './Modal.styled';
@@ -37,3 +38,10 @@ class Modal extends Component {
 }
 
 export default Modal;
+
+Modal.propTypes = {
+   largeImageURL: PropTypes.string.isRequired,
+   tags: PropTypes.string.isRequired,
+   activeImageIdx: PropTypes.func.isRequired,
+   toggleModal: PropTypes.func.isRequired,
+}.isRequired;

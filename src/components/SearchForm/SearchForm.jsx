@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { Form, FormButton, Input } from './SearchForm.styled';
 import { VscSearch } from 'react-icons/vsc';
@@ -57,3 +58,7 @@ class SearchForm extends Component {
 }
 
 export default SearchForm;
+
+SearchForm.propTypes = {
+   handleSubmit: PropTypes.func.isRequired,
+}.isRequired;
