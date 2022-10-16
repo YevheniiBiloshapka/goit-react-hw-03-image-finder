@@ -91,13 +91,12 @@ export class App extends Component {
                <Searchbar>
                   <SearchForm onSubmit={handleSubmit} />
                </Searchbar>
-               {status === 'resolved' && (
-                  <ImageGallery
-                     hits={hits}
-                     setActiveImageIdx={setActiveImageIdx}
-                     onClick={toggleModal}
-                  />
-               )}
+
+               <ImageGallery
+                  hits={hits}
+                  setActiveImageIdx={setActiveImageIdx}
+                  onClick={toggleModal}
+               />
             </Gallery>
 
             {totalHits === 0 && <NotFound />}
